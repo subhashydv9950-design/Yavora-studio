@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yavora Studio | Cinematic Production & Photography</title>
+    <!-- Google Fonts & FontAwesome for icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --bg-color: #0a0a0a;
+            --card-bg: #141414;
+            --accent-gold: #d4af37;
+            --accent-hover: #f39c12;
+            --text-main: #f5f5f5;
+            --text-muted: #a0a0a0;
+            --border-color: #262626;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, .logo-text {
+            font-family: 'Playfair Display', serif;
+        }
+              header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 5%;
+            z-index: 1000;
+        }
+
+        .logo-container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent-gold);
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .logo-tagline {
+            font-size: 10px;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-gold);
+        }
+
+        .lang-select {
+            background: var(--card-bg);
+            color: var(--accent-gold);
+            border: 1px solid var(--accent-gold);
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 13px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.85)), url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            color: #fff;
+            margin-bottom: 15px;
+            max-width: 900px;
+        }
+
+        .hero h1 span {
+            color: var(--accent-gold);
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            max-width: 600px;
+        }
+
+        .btn-gold {
+            background: var(--accent-gold);
+            color: #000;
+            padding: 12px 30px;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-gold:hover {
+            background: var(--accent-hover);
+            transform: translateY(-2px);
+        }
+              section {
+            padding: 80px 5%;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 36px;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--text-muted);
+            font-size: 15px;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            max-width: 1000px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 30px;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            border-color: var(--accent-gold);
+        }
+
+        .card i {
+            font-size: 32px;
+            color: var(--accent-gold);
+            margin-bottom: 15px;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .service-item {
+            position: relative;
+            height: 320px;
+            border-radius: 6px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .service-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .service-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .service-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            padding: 20px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.9));
+        }
+
+        .inquiry-section {
+            background: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .form-box {
+            max-width: 700px;
+            margin: 0 auto;
+            background: var(--bg-color);
+            padding: 40px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: #fff;
+            border-radius: 4px;
+            font-size: 15px;
+            outline: none;
+        }
+
+        #successMessage {
+            display: none;
+            background: rgba(212, 175, 55, 0.1);
+            border: 1px solid var(--accent-gold);
+            color: var(--accent-gold);
+            padding: 15px;
+            text-align: center;
+            border-radius: 4px;
+            margin-top: 20px;
+            font-weight: 500;
+        }
+          </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo-container">
+            <span class="logo-text">Yavora Studio</span>
+            <span class="logo-tagline">Cinematography & Photography</span>
+        </div>
+        <nav>
+            <a href="#home" data-key="nav_home">Home</a>
+            <a href="#services" data-key="nav_services">Services</a>
+            <a href="#about" data-key="nav_about">Leadership</a>
+            <a href="#inquiry" data-key="nav_inquiry">Book Shoot</a>
+            <select class="lang-select" id="langSwitcher" onchange="changeLanguage(this.value)">
+                <option value="en">English</option>
+                <option value="hi">हिंदी (Hindi)</option>
+                <option value="es">Español (Spanish)</option>
+                <option value="de">Deutsch (German)</option>
+                <option value="fr">Français (French)</option>
+                <option value="ko">한국어 (Korean)</option>
+                <option value="zh">中文 (Chinese)</option>
+                <option value="ja">日本語 (Japanese)</option>
+                <option value="id">Indonesian</option>
+                <option value="pt">Português (Portuguese)</option>
+                <option value="ru">Русский (Russian)</option>
+            </select>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <h1 data-key="hero_title">Capturing Timeless Stories & <span>Cinematic Excellence</span></h1>
+        <p data-key="hero_subtitle">Available Across All India | Head Offices in Mumbai & Jaipur</p>
+        <a href="#inquiry" class="btn-gold" data-key="hero_btn">Book Your Shoot Now</a>
+    </section>
+
+    <section id="about">
+        <div class="section-title">
+            <h2 data-key="lead_heading">The Creative Visionaries</h2>
+            <p data-key="lead_sub">Leading the future of visual storytelling</p>
+        </div>
+        <div class="about-grid">
+            <div class="card">
+                <i class="fa-solid fa-crown"></i>
+                <h3>Subhash Yadav</h3>
+                <p data-key="founder_role">Founder & Creative Director</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-video"></i>
+                <h3>Dharmesh Yadav</h3>
+                <p data-key="cine_role">Direct Cinematographer</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-location-dot"></i>
+                <h3 data-key="hq_title">Head Offices</h3>
+                <p>Mumbai & Jaipur<br><span style="color:var(--accent-gold);" data-key="all_india">Shoots Across All India</span></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="services" style="background: #0d0d0d;">
+        <div class="section-title">
+            <h2 data-key="serv_heading">Our Signature Shoots</h2>
+            <p data-key="serv_sub">From grand weddings to blockbuster webseries</p>
+        </div>
+        <div class="services-grid">
+            <div class="service-item">
+                <img src="https://images.unsplash.com/photo-1574717024653-61fd2cf4d44d?auto=format&fit=crop&w=600&q=80" alt="Webseries">
+                <div class="service-overlay">
+                    <h4 data-key="s_web">Webseries & Short Films</h4>
+                    <span>Cinematic Production</span>
+                </div>
+            </div>
+            <div class="service-item">
+                <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?auto=format&fit=crop&w=600&q=80" alt="Song Video">
+                <div class="service-overlay">
+                    <h4 data-key="s_song">Song & Music Albums</h4>
+                    <span>Music Video Shoot</span>
+                </div>
+            </div>
+            <div class="service-item">
+                <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=600&q=80" alt="Wedding">
+                <div class="service-overlay">
+                    <h4 data-key="s_wedding">Wedding & Pre-Wedding</h4>
+                    <span>Luxury Coverage</span>
+                </div>
+            </div>
+            <div class="service-item">
+                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80" alt="Concert">
+                <div class="service-overlay">
+                    <h4 data-key="s_concert">Concerts & Live Events</h4>
+                    <span>Stage & Crowd Shoot</span>
+                </div>
+            </div>
+            <div class="service-item">
+                <img src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=600&q=80" alt="Brand & Car">
+                <div class="service-overlay">
+                    <h4 data-key="s_brand">Brand & New Car Shoots</h4>
+                    <span>Commercial Production</span>
+                </div>
+            </div>
+            <div class="service-item">
+                <img src="https://images.unsplash.com/photo-1533174072545-7a4b6ad7a6c3?auto=format&fit=crop&w=600&q=80" alt="Party & Culture">
+                <div class="service-overlay">
+                    <h4 data-key="s_party">Parties, Birthdays & Culture</h4>
+                    <span>Vibrant Celebrations</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="inquiry" class="inquiry-section">
+        <div class="section-title">
+            <h2 data-key="form_heading">Online Shoot Inquiry</h2>
+            <p data-key="form_sub">Fill out the details below and we will get back to you shortly</p>
+        </div>
+        <div class="form-box">
+            <form id="shootInquiryForm" onsubmit="handleFormSubmit(event)">
+                <div class="form-group">
+                    <label data-key="lbl_date">Select Shoot Date:</label>
+                    <input type="date" id="shootDate" required>
+                </div>
+                
+                <div class="form-group">
+                    <label data-key="lbl_category">Select Shoot Category:</label>
+                    <select id="shootCategory" required>
+                        <option value="" disabled selected data-key="opt_select">-- Choose Category --</option>
+                        <option value="Webseries" data-key="opt_web">Webseries Shoot</option>
+                        <option value="Short Film" data-key="opt_shortfilm">Short Film Shoot</option>
+                        <option value="Song / Music Album" data-key="opt_song">Song / Music Album Shoot</option>
+                        <option value="Concert" data-key="opt_concert">Concert Shoot</option>
+                        <option value="Brand Shoot" data-key="opt_brand">Brand Shoot</option>
+                        <option value="New Car Launch" data-key="opt_car">New Car Shoot</option>
+                        <option value="Wedding" data-key="opt_wedding">Wedding Shoot</option>
+                        <option value="Pre-Wedding" data-key="opt_prewedding">Pre-Wedding Shoot</option>
+                        <option value="Party Shoot" data-key="opt_party">Party Shoot</option>
+                        <option value="Birthday Shoot" data-key="opt_birthday">Birthday Shoot</option>
+                        <option value="Culture Shoot" data-key="opt_culture">Culture Shoot</option>
+                        <option value="Other" data-key="opt_other">Other Shoot</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label data-key="lbl_phone">Mobile Number / WhatsApp:</label>
+                    <input type="tel" id="mobileNumber" placeholder="e.g. 9352149065" required>
+                </div>
+
+                <div class="form-group">
+                    <label data-key="lbl_email">Email Address:</label>
+                    <input type="email" id="emailAddress" placeholder="e.g. yahu9950@gmail.com" required>
+                </div>
+
+                <button type="submit" class="btn-gold" style="width: 100%; text-align: center;" data-key="btn_submit">Submit Inquiry</button>
+            </form>
+
+            <div id="successMessage" data-key="success_text">
+                ✨ Thank you! Hum aap se jald hi sampark karenge. (We will contact you soon!)
+            </div>
+        </div>
+    </section>
+    <footer>
+        <div class="footer-content">
+            <h3>Yavora Studio</h3>
+            <p data-key="footer_tag">Professional Cinematography, Portrait & Commercial Studio</p>
+            <p><i class="fa-solid fa-envelope"></i> yahu9950@gmail.com | <i class="fa-solid fa-phone"></i> +91 9352149065</p>
+            <p data-key="footer_loc">Head Offices: Mumbai & Jaipur | Shoots Available All Over India</p>
+            <div class="social-links">
+                <a href="https://wa.me/919352149065" target="_blank"><i class="fa-brands fa-whatsapp"></i></a>
+                <a href="mailto:yahu9950@gmail.com"><i class="fa-solid fa-envelope"></i></a>
+                <a href="#"><i class="fa-brands fa-instagram"></i></a>
+                <a href="#"><i class="fa-brands fa-youtube"></i></a>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2026 Yavora Studio. Founder: Subhash Yadav | Direct Cinematographer: Dharmesh Yadav. All Rights Reserved.
+        </div>
+    </footer>
+
+    <script>
+        const translations = {
+            en: {
+                nav_home: "Home", nav_services: "Services", nav_about: "Leadership", nav_inquiry: "Book Shoot",
+                hero_title: "Capturing Timeless Stories & <span>Cinematic Excellence</span>",
+                hero_subtitle: "Available Across All India | Head Offices in Mumbai & Jaipur",
+                hero_btn: "Book Your Shoot Now",
+                lead_heading: "The Creative Visionaries", lead_sub: "Leading the future of visual storytelling",
+                founder_role: "Founder & Creative Director", cine_role: "Direct Cinematographer",
+                hq_title: "Head Offices", all_india: "Shoots Across All India",
+                serv_heading: "Our Signature Shoots", serv_sub: "From grand weddings to blockbuster webseries",
+                s_web: "Webseries & Short Films", s_song: "Song & Music Albums", s_wedding: "Wedding & Pre-Wedding",
+                s_concert: "Concerts & Live Events", s_brand: "Brand & New Car Shoots", s_party: "Parties, Birthdays & Culture",
+                form_heading: "Online Shoot Inquiry", form_sub: "Fill out the details below and we will get back to you shortly",
+                lbl_date: "Select Shoot Date:", lbl_category: "Select Shoot Category:",
+                opt_select: "-- Choose Category --", opt_web: "Webseries Shoot", opt_shortfilm: "Short Film Shoot",
+                opt_song: "Song / Music Album Shoot", opt_concert: "Concert Shoot", opt_brand: "Brand Shoot",
+                opt_car: "New Car Shoot", opt_wedding: "Wedding Shoot", opt_prewedding: "Pre-Wedding Shoot",
+                opt_party: "Party Shoot", opt_birthday: "Birthday Shoot", opt_culture: "Culture Shoot", opt_other: "Other Shoot",
+                lbl_phone: "Mobile Number / WhatsApp:", lbl_email: "Email Address:", btn_submit: "Submit Inquiry",
+                success_text: "✨ Thank you! Hum aap se jald hi sampark karenge. (We will contact you soon!)",
+                footer_tag: "Professional Cinematography, Portrait & Commercial Studio",
+                footer_loc: "Head Offices: Mumbai & Jaipur | Shoots Available All Over India"
+            },
+            hi: {
+                nav_home: "होम", nav_services: "सेवाएं", nav_about: "नेतृत्व", nav_inquiry: "बुक शूट",
+                hero_title: "कैप्चर कर रहे हैं अनमोल पल और <span>सिनेमैटिक उत्कृष्टता</span>",
+                hero_subtitle: "पूरे भारत में उपलब्ध | मुख्य कार्यालय: मुंबई और जयपुर",
+                hero_btn: "अभी शूट बुक करें",
+                lead_heading: "क्रिएटिव विजनरीज", lead_sub: "विजुअल स्टोरीटेलिंग का भविष्य",
+                founder_role: "संस्थापक और क्रिएटिव डायरेक्टर", cine_role: "मुख्य सिनेमैटोग्राफर",
+                hq_title: "मुख्य कार्यालय", all_india: "शूट्स पूरे भारत में उपलब्ध",
+                serv_heading: "हमारे खास शूट्स", serv_sub: "शानदार शादियों से लेकर ब्लॉकबस्टर वेबसीरीज तक",
+                s_web: "वेबसीरीज और शॉर्ट फिल्म", s_song: "सॉन्ग और म्यूजिक एल्बम", s_wedding: "वेडिंग और प्री-वेडिंग",
+                s_concert: "कॉन्सर्ट और लाइव इवेंट", s_brand: "ब्रांड और न्यू कार शूट", s_party: "पार्टी, जन्मदिन और संस्कृति",
+                form_heading: "ऑनलाइन शूट पूछताछ (Inquiry)", form_sub: "नीचे विवरण भरें, हम जल्द ही आपसे संपर्क करेंगे",
+                lbl_date: "शूट की तारीख चुनें:", lbl_category: "शूट का प्रकार चुनें:",
+                opt_select: "-- श्रेणी चुनें --", opt_web: "वेबसीरीज शूट", opt_shortfilm: "शॉर्ट फिल्म शूट",
+                opt_song: "सॉन्ग / म्यूजिक एल्बम शूट", opt_concert: "कॉन्सर्ट शूट", opt_brand: "ब्रांड शूट",
+                opt_car: "नई कार शूट", opt_wedding: "वेडिंग शूट", opt_prewedding: "प्री-वेडिंग शूट",
+                opt_party: "पार्टी शूट", opt_birthday: "बर्थडे शूट", opt_culture: "कल्चरल शूट", opt_other: "अन्य शूट",
+                lbl_phone: "मोबाइल नंबर / व्हाट्सएप:", lbl_email: "ईमेल आईडी:", btn_submit: "पूछताछ सबमिट करें",
+                success_text: "✨ धन्यवाद! हम आपसे जल्द ही संपर्क करेंगे।",
+                footer_tag: "प्रोफेशनल सिनेमैटोग्राफी, पोर्ट्रेट और कमर्शियल स्टूडियो",
+                footer_loc: "मुख्य कार्यालय: मुंबई और जयपुर | शूट पूरे भारत में उपलब्ध"
+            },
+            es: {
+                nav_home: "Inicio", nav_services: "Servicios", nav_about: "Liderazgo", nav_inquiry: "Reservar",
+                hero_title: "Capturando Historias Atemporales y <span>Excelencia Cinematográfica</span>",
+                hero_subtitle: "Disponible en toda la India | Oficinas Centrales en Mumbai y Jaipur",
+                hero_btn: "Reserva Tu Sesión Ahora",
+                lead_heading: "Los Visionarios Creativos", lead_sub: "Liderando el futuro visual",
+                founder_role: "Fundador y Director Creativo", cine_role: "Cinematógrafo Principal",
+                hq_title: "Oficinas Centrales", all_india: "Sesiones en toda la India",
+                serv_heading: "Nuestras Producciones", serv_sub: "Desde grandes bodas hasta webseries",
+                s_web: "Webseries y Cortos", s_song: "Videos Musicales", s_wedding: "Bodas y Pre-Boda",
+                s_concert: "Conciertos y Eventos", s_brand: "Marcas y Autos Nuevos", s_party: "Fiestas y Cultura",
+                form_heading: "Consulta Online", form_sub: "Complete los detalles y nos pondremos en contacto",
+                lbl_date: "Fecha de Sesión:", lbl_category: "Categoría:",
+                opt_select: "-- Elija Categoría --", opt_web: "Webseries", opt_shortfilm: "Cortometraje",
+                opt_song: "Video Musical", opt_concert: "Concierto", opt_brand: "Marca",
+                opt_car: "Auto Nuevo", opt_wedding: "Boda", opt_prewedding: "Pre-Boda",
+                opt_party: "Fiesta", opt_birthday: "Cumpleaños", opt_culture: "Cultura", opt_other: "Otro",
+                lbl_phone: "Número / WhatsApp:", lbl_email: "Correo Electrónico:", btn_submit: "Enviar Consulta",
+                success_text: "✨ ¡Gracias! Nos pondremos en contacto pronto.",
+                footer_tag: "Estudio Profesional de Cinematografía y Comercial",
+                footer_loc: "Oficinas: Mumbai y Jaipur | Cobertura en toda la India"
+            },
+            de: {
+                nav_home: "Startseite", nav_services: "Dienstleistungen", nav_about: "Führung", nav_inquiry: "Buchen",
+                hero_title: "Zeitlose Geschichten & <span>Cinematografische Exzellenz</span>",
+                hero_subtitle: "In ganz Indien verfügbar | Hauptsitze in Mumbai & Jaipur",
+                hero_btn: "Jetzt Shooting Buchen",
+                lead_heading: "Die Kreativen Visionäre", lead_sub: "Die Zukunft des visuellen Storytellings",
+                founder_role: "Gründer & Kreativdirektor", cine_role: "Chef-Kameramann",
+                hq_title: "Hauptsitze", all_india: "Shootings in ganz Indien",
+                serv_heading: "Unsere Signature-Shootings", serv_sub: "Von großen Hochzeiten bis Webserien",
+                s_web: "Webserien & Kurzfilme", s_song: "Musikvideos", s_wedding: "Hochzeit & Pre-Wedding",
+                s_concert: "Konzerte & Events", s_brand: "Marken & Auto-Shootings", s_party: "Partys & Kultur",
+                form_heading: "Online-Anfrage", form_sub: "Füllen Sie das Formular aus, wir melden uns schnellstmöglich",
+                lbl_date: "Shooting-Datum:", lbl_category: "Kategorie:",
+                opt_select: "-- Kategorie Wählen --", opt_web: "Webserie", opt_shortfilm: "Kurzfilm",
+                opt_song: "Musikvideo", opt_concert: "Konzert", opt_brand: "Marken-Shoot",
+                opt_car: "Autoshooting", opt_wedding: "Hochzeit", opt_prewedding: "Pre-Wedding",
+                opt_party: "Party", opt_birthday: "Geburtstag", opt_culture: "Kultur", opt_other: "Sonstiges",
+                lbl_phone: "Telefon / WhatsApp:", lbl_email: "E-Mail-Adresse:", btn_submit: "Anfrage Senden",
+                success_text: "✨ Vielen Dank! Wir werden Sie in Kürze kontaktieren.",
+                footer_tag: "Professionelles Studio für Film und Fotografie",
+                footer_loc: "Hauptsitze: Mumbai & Jaipur | Shootings in ganz Indien"
+            },
+            fr: {
+                nav_home: "Accueil", nav_services: "Services", nav_about: "Direction", nav_inquiry: "Réserver",
+                hero_title: "Capturer des Histoires et <span>l'Excellence Cinématographique</span>",
+                hero_subtitle: "Disponible dans toute l'Inde | Sièges à Mumbai et Jaipur",
+                hero_btn: "Réserver Votre Séance",
+                lead_heading: "Les Visionnaires", lead_sub: "L'art du récit visuel",
+                founder_role: "Fondateur & Directeur", cine_role: "Cinématographe Principal",
+                hq_title: "Sièges Sociaux", all_india: "Tours dans toute l'Inde",
+                serv_heading: "Nos Prestations", serv_sub: "Des mariages aux web-séries",
+                s_web: "Web-séries & Courts-métrages", s_song: "Clips Musicaux", s_wedding: "Mariage & Pré-Mariage",
+                s_concert: "Concerts & Événements", s_brand: "Marque & Voitures", s_party: "Fêtes & Culture",
+                form_heading: "Demande en Ligne", form_sub: "Remplissez les détails ci-dessous",
+                lbl_date: "Date du Tournage:", lbl_category: "Catégorie:",
+                opt_select: "-- Choisir la Catégorie --", opt_web: "Web-série", opt_shortfilm: "Court-métrage",
+                opt_song: "Clip Musical", opt_concert: "Concert", opt_brand: "Marque",
+                opt_car: "Voiture Neuve", opt_wedding: "Mariage", opt_prewedding: "Pré-Mariage",
+                opt_party: "Fête", opt_birthday: "Anniversaire", opt_culture: "Culture", opt_other: "Autre",
+                lbl_phone: "Téléphone / WhatsApp:", lbl_email: "E-mail:", btn_submit: "Envoyer la Demande",
+                success_text: "✨ Merci ! Nous vous contacterons bientôt.",
+                footer_tag: "Studio Professionnel de Cinématographie",
+                footer_loc: "Sièges: Mumbai & Jaipur | Toute l'Inde"
+            },
+            ko: {
+                nav_home: "홈", nav_services: "서비스", nav_about: "대표진", nav_inquiry: "촬영 예약",
+                hero_title: "시대를 초월한 이야기와 <span>시네마틱 감동</span>",
+                hero_subtitle: "인도 전역 촬영 가능 | 뭄바이 & 자이푸르 본사",
+                hero_btn: "지금 촬영 예약하기",
+                lead_heading: "크리에이티브 비전", lead_sub: "시각적 스토리텔링의 리더",
+                founder_role: "설립자 및 크리에이티브 디렉터", cine_role: "수석 촬영감독",
+                hq_title: "본사", all_india: "인도 전역 출장 촬영",
+                serv_heading: "시그니처 촬영", serv_sub: "웨딩부터 블록버스터 웹드라마까지",
+                s_web: "웹드라마 및 단편영화", s_song: "뮤직비디오", s_wedding: "웨딩 & 프리웨딩",
+                s_concert: "콘서트 및 행사", s_brand: "브랜드 및 신차 촬영", s_party: "파티, 생일 및 문화",
+                form_heading: "온라인 촬영 문의", form_sub: "세부 정보를 남겨주시면 빠르게 연락드리겠습니다",
+                lbl_date: "촬영 날짜:", lbl_category: "촬영 카테고리:",
+                opt_select: "-- 카테고리 선택 --", opt_web: "웹드라마 촬영", opt_shortfilm: "단편영화 촬영",
+                opt_song: "뮤직비디오 촬영", opt_concert: "콘서트 촬영", opt_brand: "브랜드 촬영",
+                opt_car: "신차 촬영", opt_wedding: "결혼식 촬영", opt_prewedding: "프리웨딩 촬영",
+                opt_party: "파티 촬영", opt_birthday: "생일 촬영", opt_culture: "문화 촬영", opt_other: "기타",
+                lbl_phone: "휴대폰 번호 / 왓츠앱:", lbl_email: "이메일 주소:", btn_submit: "문의 접수",
+                success_text: "✨ 감사합니다! 곧 연락드리겠습니다.",
+                footer_tag: "전문 시네마토그래피 및 커머셜 스튜디오",
+                footer_loc: "본사: 뭄바이 & 자이푸르 | 인도 전역 서비스"
+            },
+            zh: {
+                nav_home: "首页", nav_services: "服务", nav_about: "团队", nav_inquiry: "预约拍摄",
+                hero_title: "捕捉永恒故事与 <span>电影级视觉艺术</span>",
+                hero_subtitle: "服务全印度 | 总部位于孟买和斋浦尔",
+                hero_btn: "立即预约拍摄",
+                lead_heading: "创意领导者", lead_sub: "引领视觉叙事的未来",
+                founder_role: "创始人兼创意总监", cine_role: "首席摄影师",
+                hq_title: "总部", all_india: "全印度可接单",
+                serv_heading: "特色拍摄服务", serv_sub: "从盛大婚礼到网络剧制作",
+                s_web: "网络剧与短片", s_song: "音乐MV拍摄", s_wedding: "婚礼与婚纱照",
+                s_concert: "演唱会与现场活动", s_brand: "品牌与新车拍摄", s_party: "派对、生日与文化",
+                form_heading: "在线拍摄咨询", form_sub: "填写下方表格，我们将尽快与您联系",
+                lbl_date: "选择拍摄日期:", lbl_category: "选择拍摄类别:",
+                opt_select: "-- 请选择类别 --", opt_web: "网络剧拍摄", opt_shortfilm: "短片拍摄",
+                opt_song: "音乐专辑/MV拍摄", opt_concert: "演唱会拍摄", opt_brand: "品牌拍摄",
+                opt_car: "新车拍摄", opt_wedding: "婚礼拍摄", opt_prewedding: "婚纱照拍摄",
+                opt_party: "派对拍摄", opt_birthday: "生日拍摄", opt_culture: "文化拍摄", opt_other: "其他",
+                lbl_phone: "手机号 / WhatsApp:", lbl_email: "电子邮箱:", btn_submit: "提交咨询",
+                success_text: "✨ 谢谢！我们会尽快与您联系。",
+                footer_tag: "专业电影摄影与商业工作室",
+                footer_loc: "总部: 孟买和斋浦尔 | 印度全境可拍"
+            },
+            ja: {
+                nav_home: "ホーム", nav_services: "サービス", nav_about: "リーダーシップ", nav_inquiry: "撮影予約",
+                hero_title: "時代を超えた物語と <span>シネマティックな美しさ</span>",
+                hero_subtitle: "インド全土対応 | 本社：ムンバイ＆ジャイプル",
+                hero_btn: "今すぐ撮影を予約",
+                lead_heading: "クリエイティブビジョナリー", lead_sub: "ビジュアルストーリーテリングの未来",
+                founder_role: "創設者兼クリエイティブディレクター", cine_role: "チーフ・シネマトグラファー",
+                hq_title: "本社", all_india: "インド全土で撮影可能",
+                serv_heading: "シグネチャー撮影", serv_sub: "豪華なウェディングからウェブシリーズまで",
+                s_web: "ウェブシリーズ・短編映画", s_song: "ミュージックビデオ", s_wedding: "ウェディング＆前撮り",
+                s_concert: "コンサート・ライブ", s_brand: "ブランド・新車撮影", s_party: "パーティー・文化",
+                form_heading: "オンライン撮影問い合わせ", form_sub: "以下の詳細をご入力ください。折り返しご連絡いたします。",
+                lbl_date: "撮影希望日:", lbl_category: "撮影カテゴリー:",
+                opt_select: "-- カテゴリーを選択 --", opt_web: "ウェブシリーズ撮影", opt_shortfilm: "短編映画撮影",
+                opt_song: "ミュージックビデオ撮影", opt_concert: "コンサート撮影", opt_brand: "ブランド撮影",
+                opt_car: "新車撮影", opt_wedding: "ウェディング撮影", opt_prewedding: "前撮り撮影",
+                opt_party: "パーティー撮影", opt_birthday: "誕生日撮影", opt_culture: "カルチャー撮影", opt_other: "その他",
+                lbl_phone: "電話番号 / WhatsApp:", lbl_email: "メールアドレス:", btn_submit: "問い合わせを送信",
+                success_text: "✨ ありがとうございます！まもなくご連絡いたします。",
+                footer_tag: "プロフェッショナル・シネマトグラフィー＆商業スタジオ",
+                footer_loc: "本社：ムンバイ＆ジャイプル | インド全土対応"
+            },
+            id: {
+                nav_home: "Beranda", nav_services: "Layanan", nav_about: "Tim", nav_inquiry: "Pesan Sesi",
+                hero_title: "Mengabadikan Cerita & <span>Kualitas Sinematik</span>",
+                hero_subtitle: "Tersedia di Seluruh India | Kantor Pusat: Mumbai & Jaipur",
+                hero_btn: "Pesan Sesi Sekarang",
+                lead_heading: "Visioner Kreatif", lead_sub: "Memimpin masa depan visual",
+                founder_role: "Pendiri & Direktur Kreatif", cine_role: "Sinematografer Utama",
+                hq_title: "Kantor Pusat", all_india: "Pemotretan Seluruh India",
+                serv_heading: "Layanan Unggulan", serv_sub: "Dari pernikahan megah hingga webseries",
+                s_web: "Webseries & Film Pendek", s_song: "Video Musik", s_wedding: "Pernikahan & Pre-Wedding",
+                s_concert: "Konser & Acara", s_brand: "Merek & Mobil Baru", s_party: "Pesta & Budaya",
+                form_heading: "Pertanyaan Pemotretan Online", form_sub: "Isi detail di bawah ini dan kami akan segera menghubungi Anda",
+                lbl_date: "Pilih Tanggal Sesi:", lbl_category: "Pilih Kategori:",
+                opt_select: "-- Pilih Kategori --", opt_web: "Pemotretan Webseries", opt_shortfilm: "Film Pendek",
+                opt_song: "Video Musik", opt_concert: "Konser", opt_brand: "Merek",
+                opt_car: "Mobil Baru", opt_wedding: "Pernikahan", opt_prewedding: "Pre-Wedding",
+                opt_party: "Pesta", opt_birthday: "Ulang Tahun", opt_culture: "Budaya", opt_other: "Lainnya",
+                lbl_phone: "Nomor Ponsel / WhatsApp:", lbl_email: "Alamat Email:", btn_submit: "Kirim Pertanyaan",
+                success_text: "✨ Terima kasih! Kami akan segera menghubungi Anda.",
+                footer_tag: "Studio Sinematografi & Komersial Profesional",
+                footer_loc: "Kantor: Mumbai & Jaipur | Melayani Seluruh India"
+            },
+            pt: {
+                nav_home: "Início", nav_services: "Servicios", nav_about: "Liderança", nav_inquiry: "Reservar",
+                hero_title: "Capturando Histórias e <span>Excelência Cinematográfica</span>",
+                hero_subtitle: "Disponível em toda a Índia | Sedes em Mumbai e Jaipur",
+                hero_btn: "Reserve Seu Ensaio Agora",
+                lead_heading: "Os Visionários Criativos", lead_sub: "Liderando a narrativa visual",
+                founder_role: "Fundador e Diretor Criativo", cine_role: "Cinematógrafo Principal",
+                hq_title: "Sedes", all_india: "Ensaios em toda a Índia",
+                serv_heading: "Nossos Ensaios", serv_sub: "De grandes casamentos a webseries",
+                s_web: "Webseries e Curtas", s_song: "Videoclipes Musicais", s_wedding: "Casamento e Pré-Wedding",
+                s_concert: "Shows e Eventos", s_brand: "Marcas e Carros Novos", s_party: "Festas e Cultura",
+                form_heading: "Consulta Online", form_sub: "Preencha os dados e entraremos em contato",
+                lbl_date: "Data do Ensaio:", lbl_category: "Categoria:",
+                opt_select: "-- Escolha a Categoria --", opt_web: "Webseries", opt_shortfilm: "Curta-metragem",
+                opt_song: "Videoclipe", opt_concert: "Show", opt_brand: "Comercial de Marca",
+                opt_car: "Carro Novo", opt_wedding: "Casamento", opt_prewedding: "Pré-Wedding",
+                opt_party: "Festa", opt_birthday: "Aniversário", opt_culture: "Cultura", opt_other: "Outro",
+                lbl_phone: "Celular / WhatsApp:", lbl_email: "E-mail:", btn_submit: "Enviar Consulta",
+                success_text: "✨ Obrigado! Entraremos em contato em breve.",
+                footer_tag: "Estúdio Profissional de Cinematografia e Comercial",
+                footer_loc: "Sedes: Mumbai e Jaipur | Atendimento em toda a Índia"
+            },
+          ru: {
+                nav_home: "Главная", nav_services: "Услуги", nav_about: "Руководство", nav_inquiry: "Забронировать",
+                hero_title: "Создание киноисторий и <span>Кинематографическое Качество</span>",
+                hero_subtitle: "Доступно по всей Индии | Штаб-квартиры в Мумбаи и Джайпуре",
+                hero_btn: "Забронировать Съемку",
+                lead_heading: "Творческие Визионеры", lead_sub: "Будущее визуального сторителлинга",
+                founder_role: "Основатель и Креативный Директор", cine_role: "Главный Оператор-Постановщик",
+                hq_title: "Штаб-квартиры", all_india: "Съемки по всей Индии",
+                serv_heading: "Наши Услуги", serv_sub: "От масштабных свадеб до веб-сериалов",
+                s_web: "Веб-сериалы и Короткометражки", s_song: "Музыкальные Клипы", s_wedding: "Свадьбы и Предсвадебные съемки",
+                s_concert: "Концерты и Шоу", s_brand: "Бренды и Новые Автомобили", s_party: "Вечеринки и Культура",
+                form_heading: "Онлайн Заявка на Съемку", form_sub: "Заполните форму, и мы свяжемся с вами в ближайшее время",
+                lbl_date: "Дата съемки:", lbl_category: "Категория съемки:",
+                opt_select: "-- Выберите категорию --", opt_web: "Съемка веб-сериала", opt_shortfilm: "Короткометражный фильм",
+                opt_song: "Музыкальный клип", opt_concert: "Концерт", opt_brand: "Реклама бренда",
+                opt_car: "Съемка авто", opt_wedding: "Свадьба", opt_prewedding: "Предсвадебная съемка",
+                opt_party: "Вечеринка", opt_birthday: "День рождения", opt_culture: "Культурная съемка", opt_other: "Другое",
+                lbl_phone: "Номер телефона / WhatsApp:", lbl_email: "Эл. почта:", btn_submit: "Отправить заявку",
+                success_text: "✨ Спасибо! Мы скоро свяжемся с вами.",
+                footer_tag: "Профессиональная кинематографическая и коммерческая студия",
+                footer_loc: "Штаб-квартиры: Мумбаи и Джайпур | Работаем по всей Индии"
+            }
+        };
+
+        function changeLanguage(lang) {
+            const elements = document.querySelectorAll("[data-key]");
+            elements.forEach(el => {
+                const key = el.getAttribute("data-key");
+                if (translations[lang] && translations[lang][key]) {
+                    if (el.tagName === "INPUT" || el.tagName === "TEXTAREA") {
+                        el.placeholder = translations[lang][key];
+                    } else {
+                        el.innerHTML = translations[lang][key];
+                    }
+                }
+            });
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            const date = document.getElementById('shootDate').value;
+            const category = document.getElementById('shootCategory').value;
+            const phone = document.getElementById('mobileNumber').value;
+            const email = document.getElementById('emailAddress').value;
+
+            document.getElementById('successMessage').style.display = 'block';
+            
+            const whatsappMessage = `Hello Yavora Studio,%0AI want to book a shoot!%0ACategory: ${category}%0ADate: ${date}%0APhone: ${phone}%0AEmail: ${email}`;
+            
+            setTimeout(() => {
+                window.open(`https://wa.me/919352149065?text=${whatsappMessage}`, '_blank');
+            }, 1500);
+        }
+    </script>
+</body>
+</html>
+            
