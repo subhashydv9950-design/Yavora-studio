@@ -52,7 +52,8 @@
         }
 
         .logo-container {
-            display: flex;
+                    }
+              section {display: flex;
             flex-direction: column; /* Naam aur tagline ko ek ke niche ek clean set karne ke liye */
         }
 
@@ -71,118 +72,27 @@
             letter-spacing: 0.5px;
             text-transform: uppercase;
         }
-
-        @media(min-width: 768px) {
-            .logo-text { font-size: 22px; }
-            .logo-tagline { font-size: 9px; }
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        nav a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 13px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--accent-gold);
-        }
-
-        .lang-select {
-            background: var(--card-bg);
-            color: var(--accent-gold);
-            border: 1px solid var(--accent-gold);
-            padding: 3px 6px;
-            border-radius: 4px;
-            font-size: 11px;
-            cursor: pointer;
-            outline: none;
-        }
-        
-               {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-text {
-            font-size: 24px;
-            font-weight: 700;
-            color: var(--accent-gold);
-            letter-spacing: 2px;
-            text-transform: uppercase;
-        }
-
-        .logo-tagline {
-            font-size: 10px;
-            color: var(--text-muted);
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
-
-        nav {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-
-        nav a {
-            color: var(--text-main);
-            text-decoration: none;
-            font-size: 14px;
-            font-weight: 500;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: var(--accent-gold);
-        }
-
-        .lang-select {
-            background: var(--card-bg);
-            color: var(--accent-gold);
-            border: 1px solid var(--accent-gold);
-            padding: 5px 10px;
-            border-radius: 4px;
-            font-size: 13px;
-            cursor: pointer;
-            outline: none;
-        }
-
-        .hero {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.85)), url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
-            padding: 0 20px;
-            margin-top: 60px;
-        }
-
-        .hero h1 {
-            font-size: 48px;
-            color: #fff;
-            margin-bottom: 15px;
-            max-width: 900px;
-        }
-
-        .hero h1 span {
-            color: var(--accent-gold);
-        }
-
-        .hero p {
-            font-size: 18px;
-            color: var(--text-muted);
-            margin-bottom: 30px;
-            max-width: 600px;
+                @media(max-width: 768px) {
+            header {
+                padding: 10px 2%;
+            }
+            .logo-text {
+                font-size: 15px;
+            }
+            .logo-tagline {
+                display: none;
+            }
+            nav {
+                gap: 8px;
+            }
+            nav a {
+                font-size: 11px;
+            }
+            .lang-select {
+                font-size: 10px;
+                padding: 2px 4px;
+            }
+            .hero h1 { font-size: 32px; }
         }
 
         .btn-gold {
@@ -202,7 +112,8 @@
             background: var(--accent-hover);
             transform: translateY(-2px);
         }
-              section {
+
+        section {
             padding: 80px 5%;
         }
 
@@ -268,7 +179,7 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s;
-        }
+        }  
 
         .service-item:hover img {
             transform: scale(1.1);
@@ -386,7 +297,7 @@
             <div class="card">
                 <i class="fa-solid fa-video"></i>
                 <h3>munesh Yadav</h3>
-                <p data-key="port_role">Director (portrait photography</p>
+                <p data-key="port_role">Director (portrait photography)</p>
              </div>
             <div class="card">
                 <i class="fa-solid fa-location-dot"></i>
@@ -492,7 +403,7 @@
             </form>
 
             <div id="successMessage" data-key="success_text">
-                ✨ Thank you! Hum aap se jald hi sampark karenge. (We will contact you soon!)
+                ✨ Thank you! We will contact you soon!
             </div>
         </div>
     </section>
