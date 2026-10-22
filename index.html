@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yavora Studio | Cinematic Production & Photography</title>
-    <!-- Google Fonts & FontAwesome for icons -->
+    <!-- Google Fonts & FontAwesome -->
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -35,7 +35,9 @@
 
         h1, h2, h3, .logo-text {
             font-family: 'Playfair Display', serif;
-        }        /* Fixed Header Overlap & Clean Look */
+        }
+
+        /* Classic Header */
         header {
             position: fixed;
             top: 0;
@@ -47,52 +49,88 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 10px 3%;
+            padding: 12px 4%;
             z-index: 1000;
         }
 
         .logo-container {
-                    }
-              section {display: flex;
-            flex-direction: column; /* Naam aur tagline ko ek ke niche ek clean set karne ke liye */
+            display: flex;
+            flex-direction: column;
         }
 
         .logo-text {
-            font-size: 18px;
+            font-size: 20px;
             font-weight: 700;
             color: var(--accent-gold);
             letter-spacing: 1px;
             text-transform: uppercase;
-            line-height: 1.2;
         }
 
         .logo-tagline {
-            font-size: 8px;
+            font-size: 9px;
             color: var(--text-muted);
             letter-spacing: 0.5px;
             text-transform: uppercase;
         }
-                @media(max-width: 768px) {
-            header {
-                padding: 10px 2%;
-            }
-            .logo-text {
-                font-size: 15px;
-            }
-            .logo-tagline {
-                display: none;
-            }
-            nav {
-                gap: 8px;
-            }
-            nav a {
-                font-size: 11px;
-            }
-            .lang-select {
-                font-size: 10px;
-                padding: 2px 4px;
-            }
-            .hero h1 { font-size: 32px; }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        nav a {
+            color: var(--text-main);
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--accent-gold);
+        }
+
+        .lang-select {
+            background: var(--card-bg);
+            color: var(--accent-gold);
+            border: 1px solid var(--accent-gold);
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            cursor: pointer;
+            outline: none;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(10,10,10,0.7), rgba(10,10,10,0.85)), url('https://images.unsplash.com/photo-1492691527719-9d1e07e534b4?auto=format&fit=crop&w=1920&q=80') no-repeat center center/cover;
+            padding: 0 20px;
+            margin-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 40px;
+            color: #fff;
+            margin-bottom: 15px;
+            max-width: 900px;
+        }
+
+        .hero h1 span {
+            color: var(--accent-gold);
+        }
+
+        .hero p {
+            font-size: 16px;
+            color: var(--text-muted);
+            margin-bottom: 30px;
+            max-width: 600px;
         }
 
         .btn-gold {
@@ -114,30 +152,31 @@
         }
 
         section {
-            padding: 80px 5%;
+            padding: 70px 5%;
         }
 
         .section-title {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 40px;
         }
 
         .section-title h2 {
-            font-size: 36px;
+            font-size: 34px;
             color: var(--accent-gold);
             margin-bottom: 10px;
         }
 
         .section-title p {
             color: var(--text-muted);
-            font-size: 15px;
+            font-size: 14px;
         }
 
+        /* Leadership Cards */
         .about-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            max-width: 1000px;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 25px;
+            max-width: 1100px;
             margin: 0 auto;
             text-align: center;
         }
@@ -145,7 +184,7 @@
         .card {
             background: var(--card-bg);
             border: 1px solid var(--border-color);
-            padding: 30px;
+            padding: 25px;
             border-radius: 8px;
             transition: 0.3s;
         }
@@ -155,11 +194,12 @@
         }
 
         .card i {
-            font-size: 32px;
+            font-size: 28px;
             color: var(--accent-gold);
             margin-bottom: 15px;
         }
 
+        /* Services Grid */
         .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -168,7 +208,7 @@
 
         .service-item {
             position: relative;
-            height: 320px;
+            height: 300px;
             border-radius: 6px;
             overflow: hidden;
             border: 1px solid var(--border-color);
@@ -179,7 +219,7 @@
             height: 100%;
             object-fit: cover;
             transition: transform 0.5s;
-        }  
+        }
 
         .service-item:hover img {
             transform: scale(1.1);
@@ -194,6 +234,18 @@
             background: linear-gradient(transparent, rgba(0,0,0,0.9));
         }
 
+        .service-overlay h4 {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .service-overlay span {
+            color: var(--accent-gold);
+            font-size: 13px;
+        }
+
+        /* Inquiry Form */
         .inquiry-section {
             background: var(--card-bg);
             border-top: 1px solid var(--border-color);
@@ -201,22 +253,22 @@
         }
 
         .form-box {
-            max-width: 700px;
+            max-width: 650px;
             margin: 0 auto;
             background: var(--bg-color);
-            padding: 40px;
+            padding: 35px;
             border-radius: 8px;
             border: 1px solid var(--border-color);
         }
 
         .form-group {
-            margin-bottom: 20px;
+            margin-bottom: 18px;
         }
 
         .form-group label {
             display: block;
-            font-size: 14px;
-            margin-bottom: 8px;
+            font-size: 13px;
+            margin-bottom: 6px;
             color: var(--text-main);
         }
 
@@ -227,8 +279,12 @@
             border: 1px solid var(--border-color);
             color: #fff;
             border-radius: 4px;
-            font-size: 15px;
+            font-size: 14px;
             outline: none;
+        }
+
+        .form-group input:focus, .form-group select:focus {
+            border-color: var(--accent-gold);
         }
 
         #successMessage {
@@ -236,16 +292,76 @@
             background: rgba(212, 175, 55, 0.1);
             border: 1px solid var(--accent-gold);
             color: var(--accent-gold);
-            padding: 15px;
+            padding: 12px;
             text-align: center;
             border-radius: 4px;
-            margin-top: 20px;
+            margin-top: 15px;
             font-weight: 500;
+            font-size: 14px;
         }
-          </style>
+
+        /* Footer */
+        footer {
+            background: #050505;
+            padding: 40px 5% 20px;
+            border-top: 1px solid var(--border-color);
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 800px;
+            margin: 0 auto 25px;
+        }
+
+        .footer-content h3 {
+            color: var(--accent-gold);
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+
+        .footer-content p {
+            color: var(--text-muted);
+            font-size: 13px;
+            margin-bottom: 5px;
+        }
+
+        .social-links {
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .social-links a {
+            color: var(--text-main);
+            font-size: 18px;
+            transition: 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--accent-gold);
+        }
+
+        .copyright {
+            font-size: 12px;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border-color);
+            padding-top: 15px;
+        }
+
+        @media(max-width: 768px) {
+            header { padding: 10px 3%; }
+            .logo-text { font-size: 15px; }
+            .logo-tagline { display: none; }
+            nav { gap: 8px; }
+            nav a { font-size: 11px; }
+            .lang-select { font-size: 10px; padding: 2px 4px; }
+            .hero h1 { font-size: 30px; }
+        }
+    </style>
 </head>
 <body>
-
+        <!-- Header -->
     <header>
         <div class="logo-container">
             <span class="logo-text">Yavora Studio</span>
@@ -258,55 +374,28 @@
             <a href="#inquiry" data-key="nav_inquiry">Book Shoot</a>
             <select class="lang-select" id="langSwitcher" onchange="changeLanguage(this.value)">
                 <option value="en">English</option>
-                <option value="hi">हिंदी (Hindi)</option>
-                <option value="es">Español (Spanish)</option>
-                <option value="de">Deutsch (German)</option>
-                <option value="fr">Français (French)</option>
-                <option value="ko">한국어 (Korean)</option>
-                <option value="zh">中文 (Chinese)</option>
-                <option value="ja">日本語 (Japanese)</option>
+                <option value="hi">हिंदी</option>
+                <option value="es">Español</option>
+                <option value="de">Deutsch</option>
+                <option value="fr">Français</option>
+                <option value="ko">한국어</option>
+                <option value="zh">中文</option>
+                <option value="ja">日本語</option>
                 <option value="id">Indonesian</option>
-                <option value="pt">Português (Portuguese)</option>
-                <option value="ru">Русский (Russian)</option>
+                <option value="pt">Português</option>
+                <option value="ru">Русский</option>
             </select>
         </nav>
     </header>
 
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <h1 data-key="hero_title">Capturing Timeless Stories & <span>Cinematic Excellence</span></h1>
         <p data-key="hero_subtitle">Available Across All India | Head Offices in Mumbai & Jaipur</p>
         <a href="#inquiry" class="btn-gold" data-key="hero_btn">Book Your Shoot Now</a>
     </section>
 
-    <section id="about">
-        <div class="section-title">
-            <h2 data-key="lead_heading">The Creative Visionaries</h2>
-            <p data-key="lead_sub">Leading the future of visual storytelling</p>
-        </div>
-        <div class="about-grid">
-            <div class="card">
-                <i class="fa-solid fa-crown"></i>
-                <h3>Subhash Yadav</h3>
-                <p data-key="founder_role">Founder & Creative Director</p>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-video"></i>
-                <h3>Dharmesh Yadav</h3>
-                <p data-key="cine_role">Director (Cinematography)</p>
-            </div>
-            <div class="card">
-                <i class="fa-solid fa-video"></i>
-                <h3>munesh Yadav</h3>
-                <p data-key="port_role">Director (portrait photography)</p>
-             </div>
-            <div class="card">
-                <i class="fa-solid fa-location-dot"></i>
-                <h3 data-key="hq_title">Head Offices</h3>
-                <p>Mumbai & Jaipur<br><span style="color:var(--accent-gold);" data-key="all_india">Shoots Across All India</span></p>
-            </div>
-        </div>
-    </section>
-
+    <!-- Services Gallery -->
     <section id="services" style="background: #0d0d0d;">
         <div class="section-title">
             <h2 data-key="serv_heading">Our Signature Shoots</h2>
@@ -358,6 +447,7 @@
         </div>
     </section>
 
+    <!-- Online Inquiry Form -->
     <section id="inquiry" class="inquiry-section">
         <div class="section-title">
             <h2 data-key="form_heading">Online Shoot Inquiry</h2>
@@ -407,6 +497,37 @@
             </div>
         </div>
     </section>
+
+    <!-- Leadership / Team Section (Moved to Bottom) -->
+    <section id="about">
+        <div class="section-title">
+            <h2 data-key="lead_heading">The Creative Visionaries</h2>
+            <p data-key="lead_sub">Leading the future of visual storytelling</p>
+        </div>
+        <div class="about-grid">
+            <div class="card">
+                <i class="fa-solid fa-crown"></i>
+                <h3>Subhash Yadav</h3>
+                <p data-key="founder_role">Founder & Creative Director</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-video"></i>
+                <h3>Dharmesh Yadav</h3>
+                <p data-key="cine_role">Director (Cinematography)</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-video"></i>
+                <h3>Munesh Yadav</h3>
+                <p data-key="port_role">Director (Portrait Photography)</p>
+            </div>
+            <div class="card">
+                <i class="fa-solid fa-location-dot"></i>
+                <h3 data-key="hq_title">Head Offices</h3>
+                <p>Mumbai & Jaipur<br><span style="color:var(--accent-gold);" data-key="all_india">Shoots Across All India</span></p>
+            </div>
+        </div>
+    </section>
+        <!-- Footer -->
     <footer>
         <div class="footer-content">
             <h3>Yavora Studio</h3>
@@ -425,6 +546,7 @@
         </div>
     </footer>
 
+    <!-- Translation & Script -->
     <script>
         const translations = {
             en: {
@@ -445,7 +567,7 @@
                 opt_car: "New Car Shoot", opt_wedding: "Wedding Shoot", opt_prewedding: "Pre-Wedding Shoot",
                 opt_party: "Party Shoot", opt_birthday: "Birthday Shoot", opt_culture: "Culture Shoot", opt_other: "Other Shoot",
                 lbl_phone: "Mobile Number / WhatsApp:", lbl_email: "Email Address:", btn_submit: "Submit Inquiry",
-                success_text: "✨ Thank you! Hum aap se jald hi sampark karenge. (We will contact you soon!)",
+                success_text: "✨ Thank you! We will contact you soon!",
                 footer_tag: "Professional Cinematography, Portrait & Commercial Studio",
                 footer_loc: "Head Offices: Mumbai & Jaipur | Shoots Available All Over India"
             },
@@ -626,7 +748,7 @@
                 footer_loc: "Kantor: Mumbai & Jaipur | Melayani Seluruh India"
             },
             pt: {
-                nav_home: "Início", nav_services: "Servicios", nav_about: "Liderança", nav_inquiry: "Reservar",
+                nav_home: "Início", nav_services: "Serviços", nav_about: "Liderança", nav_inquiry: "Reservar",
                 hero_title: "Capturando Histórias e <span>Excelência Cinematográfica</span>",
                 hero_subtitle: "Disponível em toda a Índia | Sedes em Mumbai e Jaipur",
                 hero_btn: "Reserve Seu Ensaio Agora",
@@ -647,7 +769,7 @@
                 footer_tag: "Estúdio Profissional de Cinematografia e Comercial",
                 footer_loc: "Sedes: Mumbai e Jaipur | Atendimento em toda a Índia"
             },
-          ru: {
+            ru: {
                 nav_home: "Главная", nav_services: "Услуги", nav_about: "Руководство", nav_inquiry: "Забронировать",
                 hero_title: "Создание киноисторий и <span>Кинематографическое Качество</span>",
                 hero_subtitle: "Доступно по всей Индии | Штаб-квартиры в Мумбаи и Джайпуре",
@@ -704,4 +826,5 @@
     </script>
 </body>
 </html>
-            
+    
+    
